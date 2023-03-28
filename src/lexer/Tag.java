@@ -5,8 +5,8 @@ public enum Tag {
     SUM("SUM"), MUL("MUL"), SUB("SUB"),
     OR("OR"),
     LT("LT"), LE("LE"), GT("GT"),
-    EOF("EOF"), 
-    UNK("UNK");
+    LIT_INT("LIT_INT"),
+    EOF("EOF"), UNK("UNK");
 
     private String name;
 
