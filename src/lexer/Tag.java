@@ -1,11 +1,14 @@
 package lexer;
 
 public enum Tag {
+    PROGRAM("PROGRAM"),
+    BEGIN("BEGIN"), END("END"),
     ASSIGN("ASSIGN"),
     SUM("SUM"), MUL("MUL"), SUB("SUB"),
     OR("OR"),
     LT("LT"), LE("LE"), GT("GT"),
     LIT_INT("LIT_INT"),
+    ID("ID"),
     EOF("EOF"), UNK("UNK");
 
     private String name;

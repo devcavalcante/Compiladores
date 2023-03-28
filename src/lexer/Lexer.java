@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class Lexer {
     private static final char EOF_CHAR = (char) -1;
     private static int line = 1;
     private BufferedReader reader;
     private char peek;
+    private HashMap <String, Tag> keywords;
 
     public Lexer(File file)
     {
@@ -19,6 +21,10 @@ public class Lexer {
             e.printStackTrace();
         }
         this.peek = ' ';
+        keywords = new HashMap<String, Tag>();
+        keywords.put("program", Tag.PROGRAM);
+        keywords.put("inicio", Tag.BEGIN);
+        keywords.put("fim", Tag.END);
     }
 
     public static int line()
@@ -93,10 +99,28 @@ public class Lexer {
                         nextChar();
                     } while(Character.isDigit(peek));
                     return new Token(Tag.LIT_INT, num);
+                }else if(isIdStart(peek)){
+                    String id = "";
+                    do {
+                        id += peek;
+                        nextChar();
+                    } while(isIdPart(peek));
+                    if(keywords.containsKey(id)){
+                        return new Token(keywords.get(id), id);
+                    }
+                    return new Token(Tag.ID, id);
                 }
         }
         String unk = String.valueOf(peek);
         nextChar();
         return new Token(Tag.UNK, unk);
+    }
+
+    private static boolean isIdStart(int c){
+        return (Character.isAlphabetic(c) || c == '_'); 
+    }
+
+    private static boolean isIdPart(int c){
+        return (isIdStart(c) || Character.isDigit(c));
     }
 }
