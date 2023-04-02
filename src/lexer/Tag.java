@@ -3,6 +3,9 @@ package lexer;
 public enum Tag {
     PROGRAM("PROGRAM"),
     BEGIN("BEGIN"), END("END"),
+    INT("INT"), REAL("REAL"),BOOL("BOOL"), 
+    TRUE("TRUE"), FALSE("FALSE"),
+    READ("READ"), WRITE("WRITE"),
     ASSIGN("ASSIGN"),
     SUM("SUM"), MUL("MUL"), SUB("SUB"),
     OR("OR"),

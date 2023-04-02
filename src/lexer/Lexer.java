@@ -22,9 +22,15 @@ public class Lexer {
         }
         this.peek = ' ';
         keywords = new HashMap<String, Tag>();
-        keywords.put("program", Tag.PROGRAM);
+        keywords.put("programa", Tag.PROGRAM);
         keywords.put("inicio", Tag.BEGIN);
-        keywords.put("fim", Tag.END);
+        keywords.put("inteiro", Tag.INT);
+        keywords.put("real", Tag.REAL);
+        keywords.put("booleano", Tag.BOOL);
+        keywords.put("verdadeiro", Tag.TRUE);
+        keywords.put("falso", Tag.FALSE);
+        keywords.put("leia", Tag.READ);
+        keywords.put("escreva", Tag.WRITE);
     }
 
     public static int line()
