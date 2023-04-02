@@ -9,7 +9,8 @@ public enum Tag {
     LT("LT"), LE("LE"), GT("GT"),
     LIT_INT("LIT_INT"),
     ID("ID"),
-    EOF("EOF"), UNK("UNK");
+    EOF("EOF"), UNK("UNK"),
+    LIT_REAL("LIT_REAL");
 
     private String name;
 

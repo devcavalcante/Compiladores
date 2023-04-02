@@ -97,7 +97,10 @@ public class Lexer {
                     do{
                         num += peek;
                         nextChar();
-                    } while(Character.isDigit(peek));
+                    } while(Character.isDigit(peek) || (peek == '.'));
+                    if(num.contains(".")){
+                        return new Token(Tag.LIT_REAL, num);
+                    }
                     return new Token(Tag.LIT_INT, num);
                 }else if(isIdStart(peek)){
                     String id = "";
